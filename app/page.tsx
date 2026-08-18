@@ -7,6 +7,7 @@ import Collections from "@/components/home/Collections";
 import BestSellers from "@/components/home/BestSellers";
 import Categories from "@/components/home/Categories";
 import PromoBanner from "@/components/home/PromoBanner";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -40,7 +41,7 @@ export default function Home() {
 
   return (
     <div>
-      <main className="pb-10">
+      <main>
         <section className="relative h-screen">
           <button
             className={`bg-[hsla(0,0%,0%,0.1)] text-white absolute left-5 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full ${currentSlide === 0 ? "hidden" : "flex"} items-center justify-center cursor-pointer`}
@@ -98,6 +99,7 @@ export default function Home() {
         <Categories />
         <PromoBanner />
       </main>
+      <Footer />
     </div>
   );
 }
