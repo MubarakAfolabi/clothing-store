@@ -1,12 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import { ShoppingCart, Search, Menu } from "lucide-react";
+import { ShoppingCart, Search, Menu, UserRound } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [dark, setDark] = useState(false);
   const headerRef = useRef(null);
+  const pathname = usePathname();
+
+  const navItems = [
+    { id: 1, name: "HOME", href: "/" },
+    { id: 2, name: "COLLECTIONS", href: "/#" },
+    { id: 3, name: "ABOUT", href: "/#" },
+  ];
 
   useEffect(() => {
     const checkBackground = () => {
@@ -60,14 +69,32 @@ export default function Header() {
           alt="logo image"
           className="object-cover"
         />
+
+        <nav className="hidden md:flex gap-4 text-white font-bold">
+          {navItems.map((item) => {
+            return (
+              <Link
+                key={item.id}
+                href={item.href}
+                className={`${item.href === pathname ? "border-b-2 border-b-[hsla(52,98%,53%,1)]" : ""}`}
+              >
+                {item.name}
+              </Link>
+            );
+          })}
+        </nav>
+
         <div className="text-white flex items-center gap-4 cursor-pointer">
+          <button className="hidden md:flex h-10 w-10 items-center justify-center rounded-full border border-solid cursor-pointer">
+            <UserRound size="20" />
+          </button>
           <button className="flex h-10 w-10 items-center justify-center rounded-full border border-solid cursor-pointer">
             <ShoppingCart size="20" />
           </button>
           <button className="flex h-10 w-10 items-center justify-center rounded-full border border-solid cursor-pointer">
             <Search size="20" />
           </button>
-          <div className="text-[hsla(52,98%,53%,1)]">
+          <div className="md:hidden text-[hsla(52,98%,53%,1)]">
             <Menu size="30" strokeWidth="3" />
           </div>
         </div>
