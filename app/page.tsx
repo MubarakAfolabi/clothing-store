@@ -4,6 +4,7 @@ import Image from "next/image";
 import { MoveRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import Collections from "@/components/home/Collections";
+import BestSellers from "@/components/home/BestSellers";
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -91,6 +92,7 @@ export default function Home() {
           </div>
         </section>
         <Collections />
+        <BestSellers />
       </main>
     </div>
   );

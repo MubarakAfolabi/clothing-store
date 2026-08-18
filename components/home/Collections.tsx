@@ -52,7 +52,7 @@ export default function Collections() {
                   href={collection.href}
                   className="self-end flex h-10 w-10 items-center justify-center rounded-full border border-[hsla(0,0%,100%,0.4)] border-solid"
                 >
-                  <MoveUpRight strokeWidth="3" />
+                  <MoveUpRight size="20" strokeWidth="3" />
                 </Link>
 
                 <div className="flex flex-col gap-4">

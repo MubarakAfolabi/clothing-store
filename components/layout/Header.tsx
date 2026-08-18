@@ -13,12 +13,12 @@ export default function Header() {
           className="object-cover"
         />
         <div className="text-white flex items-center gap-4 cursor-pointer">
-          <div className="border border-solid rounded-full p-2">
+          <button className="flex h-10 w-10 items-center justify-center rounded-full border border-solid cursor-pointer">
             <ShoppingCart size="20" />
-          </div>
-          <div className="border border-solid rounded-full p-2 cursor-pointer">
+          </button>
+          <button className="flex h-10 w-10 items-center justify-center rounded-full border border-solid cursor-pointer">
             <Search size="20" />
-          </div>
+          </button>
           <div className="text-[hsla(52,98%,53%,1)]">
             <Menu size="30" strokeWidth="3" />
           </div>
