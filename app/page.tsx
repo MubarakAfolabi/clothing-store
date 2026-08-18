@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { MoveRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
+import Collections from "@/components/home/Collections";
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -34,13 +35,9 @@ export default function Home() {
     return () => clearTimeout(interval);
   }, [currentSlide]);
 
-  useEffect(() => {
-    console.log(currentSlide);
-  }, [currentSlide]);
-
   return (
     <div>
-      <main>
+      <main className="pb-10">
         <section className="relative h-screen">
           <button
             className={`bg-[hsla(0,0%,0%,0.1)] text-white absolute left-5 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full ${currentSlide === 0 ? "hidden" : "flex"} items-center justify-center cursor-pointer`}
@@ -67,7 +64,7 @@ export default function Home() {
 
           <div className="h-full flex flex-col justify-end gap-8 p-8">
             <h1 className="text-5xl/14 max-w-62.5 font-bold text-white">
-              BOLD BY DESIGN
+              BOLD BY DESIGN.
             </h1>
             <p className="text-white text-shadow-[2px_2px_4px_hsla(0,0%,0%,1)]">
               Premium fits engineered for the streets. Discover the latest drops
@@ -93,6 +90,7 @@ export default function Home() {
             )}
           </div>
         </section>
+        <Collections />
       </main>
     </div>
   );

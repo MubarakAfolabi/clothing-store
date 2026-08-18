@@ -1,1 +1,28 @@
 @import "tailwindcss";
+
+body {
+  color: white;
+  background-color: hsla(0, 0%, 7%, 1);
+}
+
+.collections-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.collections-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.collections-scroll::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 9999px;
+}
+
+.collections-scroll::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+.collections-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #999 transparent;
+}
