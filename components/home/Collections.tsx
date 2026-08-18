@@ -31,13 +31,13 @@ export default function Collections() {
   ];
 
   return (
-    <section className="p-4">
-      <ul className="collections-scroll flex items-center gap-4 overflow-x-auto whitespace-nowrap">
+    <section className="p-8 md:p-12">
+      <ul className="collections-scroll w-full flex items-center justify-between gap-4 overflow-x-auto whitespace-nowrap">
         {collections.map((collection) => {
           return (
             <li
               key={collection.id}
-              className="flex items-center shrink-0 max-w-100"
+              className="flex items-center shrink-0 max-w-100 md:max-w-none"
             >
               <div>
                 <Image
@@ -57,13 +57,15 @@ export default function Collections() {
 
                 <div className="flex flex-col gap-4">
                   <div>
-                    <h2 className="text-3xl font-bold">{collection.title}</h2>
-                    <p className="text-[hsla(52,98%,53%,1)] text-3xl">
+                    <h2 className="text-3xl md:text-4xl font-bold">
+                      {collection.title}
+                    </h2>
+                    <p className="text-[hsla(52,98%,53%,1)] text-2xl md:text-3xl">
                       {" "}
                       Collection
                     </p>
                   </div>
-                  <p className="max-w-75 text-[hsla(0,0%,100%,0.8)] whitespace-normal">
+                  <p className="max-w-75 text-[hsla(0,0%,100%,0.8)] whitespace-normal md:text-lg">
                     {collection.description}
                   </p>
                 </div>

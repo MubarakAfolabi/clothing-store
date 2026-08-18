@@ -70,7 +70,7 @@ export default function Header() {
           className="object-cover"
         />
 
-        <nav className="hidden md:flex gap-4 text-white font-bold">
+        <nav className="hidden md:flex gap-4 md:gap-8 text-white font-bold">
           {navItems.map((item) => {
             return (
               <Link

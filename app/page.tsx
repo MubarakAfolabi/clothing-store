@@ -66,11 +66,11 @@ export default function Home() {
             />
           </div>
 
-          <div className="h-full flex flex-col justify-end gap-8 p-8">
-            <h1 className="text-5xl/14 max-w-62.5 font-bold text-white">
+          <div className="h-full flex flex-col justify-end gap-8 p-8 md:p-12">
+            <h1 className="text-5xl/14 md:text-7xl/14 max-w-62.5 md:max-w-none font-bold text-white">
               BOLD BY DESIGN.
             </h1>
-            <p className="text-white text-shadow-[2px_2px_4px_hsla(0,0%,0%,1)]">
+            <p className="text-white text-shadow-[2px_2px_4px_hsla(0,0%,0%,1)] md:text-lg">
               Premium fits engineered for the streets. Discover the latest drops
               designed to make a statement.
             </p>
