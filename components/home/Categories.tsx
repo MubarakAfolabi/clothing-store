@@ -116,7 +116,7 @@ export default function Categories() {
   ];
 
   return (
-    <section className="p-4">
+    <section className="p-4 pb-40">
       <ul className="flex flex-col gap-10">
         {categories.map((category) => {
           return (

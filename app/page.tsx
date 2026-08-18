@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Collections from "@/components/home/Collections";
 import BestSellers from "@/components/home/BestSellers";
 import Categories from "@/components/home/Categories";
+import PromoBanner from "@/components/home/PromoBanner";
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -95,6 +96,7 @@ export default function Home() {
         <Collections />
         <BestSellers />
         <Categories />
+        <PromoBanner />
       </main>
     </div>
   );
