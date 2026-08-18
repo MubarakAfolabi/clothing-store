@@ -1,0 +1,192 @@
+import { MoveRight, Flame, ShoppingCart } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+
+export default function Categories() {
+  const categories = [
+    {
+      id: 1,
+      title: "Men's",
+      descriptionImageSrc: "/category-1.png",
+      descriptionImageAlt: "Men's Category",
+      href: "/#",
+      items: [
+        {
+          id: 1,
+          title: "Heavyweight Nylon Trench",
+          price: 320,
+          trending: true,
+          imageSrc: "/best-seller-1.png",
+          alt: "Heavyweight Nylon Trench",
+          href: "/#",
+        },
+
+        {
+          id: 2,
+          title: "Raw-Edge Ribbed Knit",
+          price: 140,
+          trending: false,
+          imageSrc: "/best-seller-3.png",
+          alt: "Raw-Edge Ribbed Knit",
+          href: "/#",
+        },
+        {
+          id: 3,
+          title: "Modular Crossbody Harness",
+          price: 95,
+          trending: true,
+          imageSrc: "/best-seller-4.png",
+          alt: "Modular Crossbody Harness",
+          href: "/#",
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: "Ladies'",
+      descriptionImageSrc: "/category-2.png",
+      descriptionImageAlt: "Ladies' Category",
+      href: "/#",
+      items: [
+        {
+          id: 1,
+          title: "Asymmetric Zip Bomber",
+          price: 99,
+          trending: true,
+          imageSrc: "/best-seller-2.png",
+          alt: "Asymmetric Zip Bomber",
+          href: "/#",
+        },
+        {
+          id: 2,
+          title: "Ladies' Parachute Cargo Maxi Skirt",
+          price: 175,
+          trending: true,
+          imageSrc: "/category-4.png",
+          alt: "Raw-Edge Ribbed Knit",
+          href: "/#",
+        },
+        {
+          id: 3,
+          title: "Ladies' Ribbed Corset Zip-Up Top",
+          price: 120,
+          trending: false,
+          imageSrc: "/category-5.png",
+          alt: "Modular Crossbody Harness",
+          href: "/#",
+        },
+      ],
+    },
+    {
+      id: 3,
+      title: "Kids'",
+      descriptionImageSrc: "/category-3.png",
+      descriptionImageAlt: "Kids' Category",
+      href: "/#",
+      items: [
+        {
+          id: 1,
+          title: "Kid's Mini Varsity Puffer Vest",
+          price: 145,
+          trending: true,
+          imageSrc: "/category-6.png",
+          alt: "Heavyweight Nylon Trench",
+          href: "/#",
+        },
+        {
+          id: 2,
+          title: "Kid's Distressed Denim Cargos",
+          price: 110,
+          trending: false,
+          imageSrc: "/category-7.png",
+          alt: "Asymmetric Zip Bomber",
+          href: "/#",
+        },
+        {
+          id: 3,
+          title: "Raw-Edge Ribbed Knit",
+          price: 85,
+          trending: false,
+          imageSrc: "/category-7.png",
+          alt: "Raw-Edge Ribbed Knit",
+          href: "/#",
+        },
+      ],
+    },
+  ];
+
+  return (
+    <section className="p-4">
+      <ul className="flex flex-col gap-10">
+        {categories.map((category) => {
+          return (
+            <li key={category.id} className="flex flex-col gap-6">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <h2 className="text-3xl font-bold">{category.title}</h2>
+                  <p className="text-[hsla(52,98%,53%,1)] text-3xl">
+                    Categories
+                  </p>
+                </div>
+                <Link
+                  href={category.href}
+                  className="text-[hsla(52,98%,53%,1)]"
+                >
+                  <MoveRight />
+                </Link>
+              </div>
+              <div>
+                <Image
+                  src={category.descriptionImageSrc}
+                  height="250"
+                  width="250"
+                  alt={category.descriptionImageAlt}
+                />
+              </div>
+
+              <hr className="border-[hsla(52,98%,53%,1)] border-t-2" />
+
+              <ul className="collections-scroll flex gap-10 overflow-x-auto">
+                {category.items.map((item) => (
+                  <li
+                    key={item.id}
+                    className="relative flex w-75 shrink-0 flex-col justify-between"
+                  >
+                    {item.trending && (
+                      <div className="absolute top-0 left-0 flex w-fit items-center gap-2 rounded-full bg-[hsla(52,98%,53%,1)] p-2">
+                        <div className="text-[hsla(0,83%,45%,1)]">
+                          <Flame />
+                        </div>
+                        <p className="text-lg text-black">Trending</p>
+                      </div>
+                    )}
+
+                    <div className="flex justify-center">
+                      <Image
+                        src={item.imageSrc}
+                        height={250}
+                        width={250}
+                        alt={item.alt}
+                      />
+                    </div>
+
+                    <div className="flex flex-col gap-6">
+                      <h3 className="text-xl font-bold">{item.title}</h3>
+
+                      <div className="flex items-center justify-between">
+                        <p>${item.price}</p>
+                        <button className="flex h-10 w-10 items-center justify-center rounded-full border border-[hsla(0,0%,100%,0.4)] border-solid cursor-pointer">
+                          <ShoppingCart size="20" />
+                        </button>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  );
+}
