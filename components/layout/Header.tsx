@@ -1,10 +1,58 @@
+"use client";
+
 import Image from "next/image";
 import { ShoppingCart, Search, Menu } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
 
 export default function Header() {
+  const [dark, setDark] = useState(false);
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    const checkBackground = () => {
+      const header = headerRef.current;
+
+      if (!header) return;
+
+      const element = document.elementFromPoint(
+        window.innerWidth / 2,
+        header.getBoundingClientRect().bottom + 5,
+      );
+
+      if (!element) return;
+
+      const background = window.getComputedStyle(element).backgroundColor;
+
+      const rgb = background.match(/\d+/g);
+
+      if (!rgb) return;
+
+      const [r, g, b] = rgb;
+
+      const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+
+      setDark(brightness < 128);
+    };
+
+    checkBackground();
+
+    window.addEventListener("scroll", checkBackground);
+    window.addEventListener("resize", checkBackground);
+
+    return () => {
+      window.removeEventListener("scroll", checkBackground);
+      window.removeEventListener("resize", checkBackground);
+    };
+  }, []);
+
   return (
-    <header className="text-black fixed top-0 left-0 right-0 z-10 p-5">
-      <div className="bg-[hsla(0,0%,0%,0.1)] w-full flex items-center justify-between pr-5 rounded-full shadow-[0_5px_4px_hsla(0,0%,0%,0.25)]">
+    <header
+      ref={headerRef}
+      className="fixed top-0 left-0 right-0 z-10 p-5 text-black"
+    >
+      <div
+        className={`${dark ? "bg-black/10" : "bg-white/30"} backdrop-blur-md w-full flex items-center justify-between pr-5 rounded-full shadow-[0_5px_4px_hsla(0,0%,0%,0.25)]`}
+      >
         <Image
           src="/logo.png"
           width="80"
