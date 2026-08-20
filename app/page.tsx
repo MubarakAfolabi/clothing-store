@@ -4,7 +4,6 @@ import Collections from "@/components/home/Collections";
 import BestSellers from "@/components/home/BestSellers";
 import Categories from "@/components/home/Categories";
 import PromoBanner from "@/components/home/PromoBanner";
-import Footer from "@/components/layout/Footer";
 import HeroSlideshow from "@/components/home/HeroSlideshow";
 
 export default function Home() {
@@ -17,7 +16,6 @@ export default function Home() {
         <Categories />
         <PromoBanner />
       </main>
-      <Footer />
     </div>
   );
 }

@@ -10,7 +10,7 @@ export default function Collections() {
       description: "Utility meets luxury. Explore the collection.",
       imageSrc: "/collection-1.png",
       alt: "Men's Collection",
-      href: "/#",
+      href: "/collections/mens",
     },
     {
       id: 2,
@@ -18,7 +18,7 @@ export default function Collections() {
       description: "Utility meets luxury. Explore the collection.",
       imageSrc: "/collection-2.png",
       alt: "Ladies' Collection",
-      href: "/#",
+      href: "/collections/ladies",
     },
     {
       id: 3,
@@ -26,7 +26,7 @@ export default function Collections() {
       description: "Utility meets luxury. Explore the collection.",
       imageSrc: "/collection-3.png",
       alt: "Kids' Collection",
-      href: "/#",
+      href: "/collections/kids",
     },
   ];
 
