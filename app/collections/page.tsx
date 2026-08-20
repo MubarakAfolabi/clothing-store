@@ -1,18 +1,13 @@
-"use client";
-
 import Categories from "@/components/collections/Categories";
 import CollectionControls from "@/components/collections/CollectionControls";
 import FullCollection from "@/components/collections/FullCollection";
 import HeroSlideshow from "@/components/collections/HeroSlideshow";
 import NewArrivals from "@/components/collections/NewArrivals";
-import { useParams } from "next/navigation";
 
-export default function Collection() {
-  const { collection } = useParams();
-
+export default function Collections() {
   return (
     <main>
-      <HeroSlideshow collection={collection} />
+      <HeroSlideshow />
       <CollectionControls />
       <Categories />
       <NewArrivals />

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { MoveRight, ChevronLeft, ChevronRight } from "lucide-react";
 
-export default function HeroSlideshow({ collection }) {
+export default function HeroSlideshow() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
@@ -42,17 +42,6 @@ export default function HeroSlideshow({ collection }) {
     return () => clearTimeout(interval);
   }, [currentSlide]);
 
-  const collectionHeader = [
-    {
-      slug: "mens",
-      title: "MEN.",
-      subtitle:
-        "No restocks. Zero compromises. Engineered for the concrete and built to outlast the hype.",
-    },
-  ];
-
-  const header = collectionHeader.find((item) => item.slug === collection);
-
   return (
     <section className="relative h-screen">
       <button
@@ -80,10 +69,11 @@ export default function HeroSlideshow({ collection }) {
 
       <div className="h-full flex flex-col justify-end gap-8 p-8 md:p-12">
         <h1 className="text-5xl/14 md:text-7xl/14 max-w-62.5 md:max-w-none font-bold text-white">
-          {header?.title}
+          MENS.
         </h1>
         <p className="text-white text-shadow-[2px_2px_4px_hsla(0,0%,0%,1)] md:text-lg">
-          {header?.subtitle}
+          No restocks. Zero compromises. Engineered for the concrete and built
+          to outlast the hype.
         </p>
         <button className="bg-[hsla(52,98%,53%,1)] text-black font-bold w-fit flex items-center gap-4 px-2 py-4 rounded-md cursor-pointer">
           SHOP NOW
