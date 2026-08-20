@@ -1,5 +1,6 @@
 "use client";
 
+import CollectionControls from "@/components/collections/CollectionControls";
 import HeroSlideshow from "@/components/collections/HeroSlideshow";
 import { useParams } from "next/navigation";
 
@@ -9,8 +10,7 @@ export default function Collection() {
   return (
     <main>
       <HeroSlideshow collection={collection} />
-
-      {/* <section>123</section> */}
+      <CollectionControls />
     </main>
   );
 }
