@@ -44,11 +44,11 @@ export default function FullCollection() {
         <h2 className="text-3xl font-bold">The Full Collection</h2>
       </header>
 
-      <ul className="w-full flex flex-col items-center gap-10">
+      <ul className="flex w-full flex-col items-center gap-10 md:flex-row md:flex-wrap md:items-stretch">
         {fullCollections.map((collection) => (
           <li
             key={collection.id}
-            className="relative w-full flex shrink-0 flex-col justify-between"
+            className="relative flex w-full shrink-0 flex-col justify-between md:w-[calc(50%-1.25rem)] lg:w-[calc(33.333%-1.667rem)]"
           >
             <div className="flex justify-center">
               <Image
@@ -60,13 +60,14 @@ export default function FullCollection() {
             </div>
 
             <div className="flex flex-col gap-6">
-              <h3 className="text-xl md:text-2xl font-bold">
+              <h3 className="text-xl font-bold md:text-2xl">
                 {collection.title}
               </h3>
 
               <div className="flex items-center justify-between">
                 <p className="md:text-lg">${collection.price}</p>
-                <button className="flex h-10 w-10 items-center justify-center rounded-full border border-[hsla(0,0%,100%,0.4)] border-solid cursor-pointer">
+
+                <button className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-solid border-[hsla(0,0%,100%,0.4)]">
                   <ShoppingCart size="20" />
                 </button>
               </div>
