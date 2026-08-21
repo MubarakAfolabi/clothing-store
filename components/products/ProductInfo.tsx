@@ -17,6 +17,7 @@ export default function ProductInfo() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [favourite, setFavourite] = useState(false);
   const [quantity, setQuantity] = useState(1);
+  const [selectedVariation, setSelectedVariation] = useState(null);
 
   const slides = [
     {
@@ -32,6 +33,8 @@ export default function ProductInfo() {
       imageSrc: "/best-seller-3.png",
     },
   ];
+
+  const variations = ["S", "M", "L", "XL"];
 
   const handleNextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -53,6 +56,10 @@ export default function ProductInfo() {
 
   const handleIncreaseQuantity = () => {
     setQuantity((prev) => prev + 1);
+  };
+
+  const handleSelectedVariation = (variation) => {
+    setSelectedVariation(variation);
   };
 
   useEffect(() => {
@@ -184,18 +191,17 @@ export default function ProductInfo() {
         </div>
 
         <div className="flex gap-4">
-          <button className="bg-[hsla(52,98%,53%,1)] text-xl text-black border-2 border-[hsla(52,98%,53%,0.5)] h-10 w-10 cursor-pointer">
-            S
-          </button>
-          <button className="text-xl text-[hsla(52,98%,53%,1)] border-2 border-[hsla(52,98%,53%,0.5)] h-10 w-10 cursor-pointer">
-            M
-          </button>
-          <button className="text-xl text-[hsla(52,98%,53%,1)] border-2 border-[hsla(52,98%,53%,0.5)] h-10 w-10 cursor-pointer">
-            L
-          </button>
-          <button className="text-xl text-[hsla(52,98%,53%,1)] border-2 border-[hsla(52,98%,53%,0.5)] h-10 w-10 cursor-pointer">
-            XL
-          </button>
+          {variations.map((variation, index) => {
+            return (
+              <button
+                key={index}
+                className={`${selectedVariation === variation ? "bg-[hsla(52,98%,53%,1)] text-black" : ""}  text-xl border-2 border-[hsla(52,98%,53%,0.5)] h-10 w-10 cursor-pointer`}
+                onClick={() => handleSelectedVariation(variation)}
+              >
+                {variation}
+              </button>
+            );
+          })}
         </div>
 
         <button className="flex items-center justify-center gap-2 bg-[hsla(52,98%,53%,1)] text-lg text-black font-bold py-4 rounded-md cursor-pointer">
