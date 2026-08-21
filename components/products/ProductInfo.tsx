@@ -15,6 +15,7 @@ import {
 
 export default function ProductInfo() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [favourite, setFavourite] = useState(false);
 
   const slides = [
     {
@@ -99,8 +100,14 @@ export default function ProductInfo() {
       <div className="flex flex-col gap-4 p-8">
         <div className="flex-1 flex justify-between items-center">
           <h2 className="text-xl font-bold">Heavyweight Nylon Trench</h2>
-          <div className="text-[hsla(52,98%,53%,1)] cursor-pointer">
-            <Heart size="30" />
+          <div
+            className="text-[hsla(52,98%,53%,1)] cursor-pointer"
+            onClick={() => setFavourite((prev) => !prev)}
+          >
+            <Heart
+              fill={`${favourite ? "hsla(52,98%,53%,1)" : ""}`}
+              size="30"
+            />
           </div>
         </div>
         <div>
