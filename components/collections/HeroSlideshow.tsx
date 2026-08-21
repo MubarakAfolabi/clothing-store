@@ -11,14 +11,23 @@ export default function HeroSlideshow() {
     {
       id: 1,
       imageSrc: "/home-1.png",
+      title: "MENS",
+      subtitle:
+        "No restocks. Zero compromises. Engineered for the concrete and built to outlast the hype.",
     },
     {
       id: 2,
       imageSrc: "/home-1.png",
+      title: "LADIES",
+      subtitle:
+        "Bold silhouettes. Effortless confidence. Designed to move with you and made to stand apart.",
     },
     {
       id: 3,
       imageSrc: "/home-1.png",
+      title: "KIDS",
+      subtitle:
+        "Big style for little legends. Made for every adventure, built to keep up with their energy.",
     },
   ];
 
@@ -69,11 +78,10 @@ export default function HeroSlideshow() {
 
       <div className="h-full flex flex-col justify-end gap-8 p-8 md:p-12">
         <h1 className="text-5xl/14 md:text-7xl/14 max-w-62.5 md:max-w-none font-bold text-white">
-          MENS.
+          {slides[currentSlide].title}
         </h1>
         <p className="text-white text-shadow-[2px_2px_4px_hsla(0,0%,0%,1)] md:text-lg">
-          No restocks. Zero compromises. Engineered for the concrete and built
-          to outlast the hype.
+          {slides[currentSlide].subtitle}
         </p>
         <button className="bg-[hsla(52,98%,53%,1)] text-black font-bold w-fit flex items-center gap-4 px-2 py-4 rounded-md cursor-pointer">
           SHOP NOW
