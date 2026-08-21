@@ -16,6 +16,7 @@ import {
 export default function ProductInfo() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [favourite, setFavourite] = useState(false);
+  const [quantity, setQuantity] = useState(1);
 
   const slides = [
     {
@@ -42,6 +43,16 @@ export default function ProductInfo() {
 
   const handleGoToSlide = (number: number) => {
     setCurrentSlide(number);
+  };
+
+  const hadnleDecreaseQuantity = () => {
+    if (quantity > 1) {
+      setQuantity((prev) => prev - 1);
+    }
+  };
+
+  const handleIncreaseQuantity = () => {
+    setQuantity((prev) => prev + 1);
   };
 
   useEffect(() => {
@@ -147,11 +158,17 @@ export default function ProductInfo() {
         </div>
 
         <div className="flex w-fit justify-between items-center gap-10">
-          <button className="text-3xl flex items-center justify-center border-2 border-[hsla(52,98%,53%,0.5)] h-10 w-10 rounded-md cursor-pointer">
+          <button
+            className="text-3xl flex items-center justify-center border-2 border-[hsla(52,98%,53%,0.5)] h-10 w-10 rounded-md cursor-pointer"
+            onClick={hadnleDecreaseQuantity}
+          >
             <Minus />
           </button>
-          <p>1</p>
-          <button className="text-3xl flex items-center justify-center border-2 border-[hsla(52,98%,53%,0.5)] h-10 w-10 rounded-md cursor-pointer">
+          <p>{quantity}</p>
+          <button
+            className="text-3xl flex items-center justify-center border-2 border-[hsla(52,98%,53%,0.5)] h-10 w-10 rounded-md cursor-pointer"
+            onClick={handleIncreaseQuantity}
+          >
             <Plus />
           </button>
         </div>
