@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ShoppingCart, Flame } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 
 export default function CompleteTheFit() {
   const fits = [
