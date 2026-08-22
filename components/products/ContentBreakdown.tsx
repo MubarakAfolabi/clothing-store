@@ -50,7 +50,7 @@ export default function ContentBreakdown() {
               className="flex flex-col gap-4 border-b border-b-[hsla(52,98%,53%,1)] p-4 rounded-2xl"
             >
               <div className="flex-1 flex justify-between items-center">
-                <p className="text-2xl">{item.title}</p>
+                <p className="text-xl">{item.title}</p>
                 <button
                   className="bg-[hsla(52,98%,53%,1)] text-black p-2 rounded-sm cursor-pointer"
                   onClick={() => handleOpenContent(item.id)}

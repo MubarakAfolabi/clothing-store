@@ -48,7 +48,7 @@ export default function BestSellers() {
         <h2 className="text-3xl font-bold">BEST SELLERS</h2>
       </header>
 
-      <ul className="collections-scroll w-full flex justify-between gap-10 overflow-x-auto bg-re">
+      <ul className="collections-scroll w-full flex justify-between gap-10 overflow-x-auto">
         {bestSellers.map((bestSeller) => (
           <li
             key={bestSeller.id}

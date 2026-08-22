@@ -4,12 +4,13 @@ import Image from "next/image";
 import { ShoppingCart, Search, Menu, UserRound } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Header() {
   const [dark, setDark] = useState(false);
   const headerRef = useRef(null);
   const pathname = usePathname();
+  const router = useRouter();
 
   const navItems = [
     { id: 1, name: "HOME", href: "/" },
@@ -60,7 +61,9 @@ export default function Header() {
       className="fixed top-0 left-0 right-0 z-10 p-5 text-black"
     >
       <div
-        className={`${dark ? "bg-black/10" : "bg-white/30"} backdrop-blur-md w-full flex items-center justify-between pr-5 rounded-full shadow-[0_5px_4px_hsla(0,0%,0%,0.25)]`}
+        role="button"
+        className={`${dark ? "bg-black/10" : "bg-white/30"} backdrop-blur-md w-full flex items-center justify-between pr-5 rounded-full shadow-[0_5px_4px_hsla(0,0%,0%,0.25)] cursor-pointer`}
+        onClick={() => router.push("/")}
       >
         <Image
           src="/logo.png"
